@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="zRgqH-cQKdNZ7qRxVqGQJZMtHR88bCmV6d_2QjHv8Pw" />
+    <title>Geoffrey Barini | Researcher & Data Scientist</title>
+    <meta name="description" content="Official website of Geoffrey Barini, a Lecturer in Mathematics and Artificial Intelligence at Jomo Kenyatta University of Agriculture and Technology.">
+    <meta name="keywords" content="Geoffrey Barini, Geoffrey Barini JKUAT, Mathematics Lecturer, Statistical Modelling, Fuzzy Systems, Artificial Intelligence">
+    <link rel="canonical" href="https://github.com/barini-onkundi/gbarini.io/">
+    <meta property="og:title" content="Geoffrey Barini | Mathematics/AI">
+    <meta property="og:description" content="Mathematics lecturer and data science researcher specializing in statistical modeling, interpretable AI, and generalization theory for large language models.">
+    <meta property="og:image" content="https://github.com/barini-onkundi/gbarini.io/portrait.png">
+    <meta property="og:url" content="https://github.com/barini-onkundi/gbarini.io/">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --ink: #0e0f0c;
+            --paper: #f7f6f1;
+            --warm-white: #fdfcf8;
+            --accent: #c84b2f;
+            --accent-dim: #e8b4a8;
+            --green: #2d6a4f;
+            --muted: #8a8880;
+            --border: #e0ddd5;
+            --card-bg: #ffffff;
+            --tag-bg: #eeecea;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 64px;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--paper);
+            color: var(--ink);
+            font-size: 16px;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ── NOISE TEXTURE OVERLAY ── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.018;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(247, 246, 241, 0.88);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            height: 60px;
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 32px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            font-family: 'DM Serif Display', serif;
+            font-size: 18px;
+            color: var(--ink);
+            text-decoration: none;
+            letter-spacing: 0.01em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+            color: var(--muted);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--accent); }
+
+        /* ── CONTAINER ── */
+        .wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* ── SECTION HEADINGS ── */
+        .section-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+            max-width: 60px;
+        }
+
+        h2.section-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 38px;
+            font-weight: 400;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            margin-bottom: 36px;
+            color: var(--ink);
+        }
+
+        section { padding: 80px 0; }
+
+        /* ── HERO ── */
+        .hero {
+            padding: 100px 0 80px;
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 80px;
+            align-items: center;
+            min-height: 85vh;
+        }
+
+        .hero-eyebrow {
+            font-family: 'DM Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            width: 28px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        h1.hero-name {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(52px, 6vw, 80px);
+            font-weight: 400;
+            line-height: 1.02;
+            letter-spacing: -0.025em;
+            color: var(--ink);
+            margin-bottom: 20px;
+        }
+
+        h1.hero-name em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .hero-tagline {
+            font-size: 18px;
+            color: var(--muted);
+            font-weight: 300;
+            line-height: 1.65;
+            max-width: 540px;
+            margin-bottom: 36px;
+        }
+
+        .hero-tagline strong { color: var(--ink); font-weight: 500; }
+
+        .hero-cta {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+            padding: 11px 26px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: 0.01em;
+        }
+
+        .btn-primary:hover { background: #a83a20; transform: translateY(-1px); }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--ink);
+            padding: 11px 26px;
+            border-radius: 4px;
+            border: 1.5px solid var(--border);
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: border-color 0.2s, transform 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
+        .hero-socials {
+            display: flex;
+            gap: 18px;
+        }
+
+        .hero-socials a {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1.5px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 15px;
+            transition: border-color 0.2s, color 0.2s, transform 0.2s;
+        }
+
+        .hero-socials a:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Portrait */
+        .hero-portrait-wrap {
+            position: relative;
+        }
+
+        .hero-portrait-wrap::before {
+            content: '';
+            position: absolute;
+            top: -16px;
+            right: -16px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--accent-dim);
+            border-radius: 6px;
+            z-index: 0;
+        }
+
+        .hero-portrait {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            border-radius: 6px;
+            background: var(--tag-bg);
+            display: block;
+        }
+
+        /* Floating stats badges */
+        .stat-badge {
+            position: absolute;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px 14px;
+            z-index: 2;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        .stat-badge .stat-num {
+            font-family: 'DM Serif Display', serif;
+            font-size: 24px;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .stat-badge .stat-lbl {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--muted);
+            margin-top: 2px;
+            font-family: 'DM Mono', monospace;
+        }
+
+        .badge-pubs { bottom: 48px; left: -40px; }
+        .badge-yrs  { top: 32px; left: -50px; }
+
+        /* ── ABOUT ── */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .about-body {
+            font-size: 17px;
+            color: var(--muted);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .about-body strong { color: var(--ink); font-weight: 500; }
+
+        .research-pillars {
+            display: grid;
+            gap: 14px;
+        }
+
+        .pillar {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 18px 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            transition: box-shadow 0.25s, transform 0.25s;
+        }
+
+        .pillar:hover {
+            box-shadow: 0 8px 28px rgba(0,0,0,0.07);
+            transform: translateY(-2px);
+        }
+
+        .pillar-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 6px;
+            background: var(--tag-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+            color: var(--accent);
+        }
+
+        .pillar-text strong {
+            font-size: 14px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .pillar-text span { font-size: 13px; color: var(--muted); }
+
+        /* ── TIMELINE (education/experience) ── */
+        .timeline { position: relative; }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 6px;
+            bottom: 0;
+            width: 1px;
+            background: var(--border);
+        }
+
+        .timeline-entry {
+            padding: 0 0 36px 32px;
+            position: relative;
+        }
+
+        .timeline-entry::before {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 6px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--paper);
+            border: 2px solid var(--accent);
+        }
+
+        .tl-date {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            color: var(--accent);
+            letter-spacing: 0.08em;
+            margin-bottom: 6px;
+        }
+
+        .tl-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 2px;
+        }
+
+        .tl-org {
+            font-size: 14px;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+
+        .tl-body {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.65;
+        }
+
+        .tl-body ul { padding-left: 16px; margin-top: 6px; }
+        .tl-body li { margin-bottom: 4px; }
+
+        /* ── PUBLICATION CARDS ── */
+        .pubs-list { display: grid; gap: 24px; }
+
+        .pub-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 28px 32px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 24px;
+            align-items: start;
+            transition: box-shadow 0.25s, transform 0.25s;
+        }
+
+        .pub-card:hover {
+            box-shadow: 0 10px 36px rgba(0,0,0,0.07);
+            transform: translateY(-2px);
+        }
+
+        .pub-status {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 3px 9px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .status-published { background: #d4edda; color: #2d6a4f; }
+        .status-submitted { background: #fff3cd; color: #856404; }
+
+        .pub-title-text {
+            font-family: 'DM Serif Display', serif;
+            font-size: 19px;
+            font-weight: 400;
+            line-height: 1.35;
+            color: var(--ink);
+            margin-bottom: 10px;
+        }
+
+        .pub-authors {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 14px;
+            font-style: italic;
+        }
+
+        .pub-me { color: var(--ink); font-style: normal; font-weight: 600; text-decoration: underline; text-decoration-color: var(--accent-dim); }
+
+        .pub-venue {
+            font-size: 13px;
+            color: var(--muted);
+            font-weight: 500;
+            margin-bottom: 14px;
+        }
+
+        .pub-links { display: flex; gap: 8px; flex-wrap: wrap; }
+
+        .btn-tag {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.05em;
+            padding: 5px 12px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            background: var(--tag-bg);
+            color: var(--ink);
+            text-decoration: none;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .btn-tag:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+        .pub-year {
+            font-family: 'DM Serif Display', serif;
+            font-size: 48px;
+            color: var(--tag-bg);
+            line-height: 1;
+            text-align: right;
+            white-space: nowrap;
+            user-select: none;
+        }
+
+        /* ── SKILLS ── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 22px;
+            transition: box-shadow 0.25s, transform 0.25s;
+        }
+
+        .skill-card:hover {
+            box-shadow: 0 8px 28px rgba(0,0,0,0.07);
+            transform: translateY(-2px);
+        }
+
+        .skill-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: var(--tag-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            margin-bottom: 14px;
+            color: var(--accent);
+        }
+
+        .skill-card h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .skill-card p {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.55;
+        }
+
+        /* ── PROJECTS ── */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+        }
+
+        .proj-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: box-shadow 0.3s, transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .proj-card:hover {
+            box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+        }
+
+        .proj-visual {
+            height: 220px;
+            background: var(--tag-bg);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .proj-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .proj-vis-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: var(--muted);
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.05em;
+        }
+
+        .proj-vis-placeholder i { font-size: 32px; color: var(--border); }
+
+        .proj-tag-bar {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .proj-tag {
+            font-family: 'DM Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            background: rgba(255,255,255,0.92);
+            color: var(--ink);
+            padding: 3px 8px;
+            border-radius: 3px;
+        }
+
+        .proj-body {
+            padding: 24px 26px 26px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .proj-body h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 8px;
+            line-height: 1.25;
+        }
+
+        .proj-body p {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.65;
+            flex: 1;
+            margin-bottom: 18px;
+        }
+
+        .proj-body ul {
+            font-size: 13px;
+            color: var(--muted);
+            padding-left: 16px;
+            margin-bottom: 18px;
+            line-height: 1.7;
+        }
+
+        .proj-links { display: flex; gap: 8px; flex-wrap: wrap; }
+
+        /* ── APPOINTMENTS ── */
+        .appts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .appt-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 22px;
+            transition: box-shadow 0.25s, transform 0.25s;
+        }
+
+        .appt-card:hover {
+            box-shadow: 0 8px 28px rgba(0,0,0,0.07);
+            transform: translateY(-2px);
+        }
+
+        .appt-date {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            color: var(--accent);
+            letter-spacing: 0.08em;
+            margin-bottom: 6px;
+        }
+
+        .appt-title { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+        .appt-org { font-size: 13px; color: var(--muted); }
+
+        /* ── VISITOR STATS ── */
+        .stats-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        footer p {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .footer-links { display: flex; gap: 20px; }
+        .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--accent); }
+
+        /* ── DIVIDER ── */
+        .section-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 0;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .hero { grid-template-columns: 1fr; gap: 48px; min-height: auto; padding: 60px 0; }
+            .hero-portrait-wrap { max-width: 320px; margin: 0 auto; }
+            .about-grid { grid-template-columns: 1fr; gap: 36px; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .appts-grid { grid-template-columns: 1fr; }
+            .badge-yrs, .badge-pubs { display: none; }
+        }
+
+        @media (max-width: 600px) {
+            .wrap { padding: 0 20px; }
+            .nav-inner { padding: 0 20px; }
+            .nav-links { display: none; }
+            h1.hero-name { font-size: 42px; }
+            h2.section-title { font-size: 30px; }
+            section { padding: 60px 0; }
+            .pub-card { grid-template-columns: 1fr; }
+            .pub-year { display: none; }
+        }
+
+        /* ── FADE-IN ANIMATION ── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.55s ease, transform 0.55s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a class="nav-brand" href="#">Geoffrey Barini</a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="wrap">
+<section class="hero" id="about">
+    <div class="hero-text">
+        <p class="hero-eyebrow">Computational Mathematics · AI · Epidemiology</p>
+        <h1 class="hero-name">Geoffrey<br><em>Barini</em></h1>
+        <p class="hero-tagline">
+            Lecturer &amp; researcher at <strong>JKUAT, Kenya</strong>, building reliable AI systems and spatial models for health and environmental outcomes across Africa.
+        </p>
+        <div class="hero-cta">
+            <a href="Barini Geoffrey_CV.pdf" class="btn-primary"><i class="fas fa-file-alt"></i> Download CV</a>
+            <a href="https://scholar.google.com/citations?user=FlEkqRcAAAAJ&hl=en" class="btn-outline" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+        </div>
+        <div class="hero-socials">
+            <a href="mailto:geoffrey.barini@jkuat.ac.ke" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://scholar.google.com/citations?user=FlEkqRcAAAAJ&hl=en" title="Scholar" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+            <a href="https://github.com/barini-onkundi" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/geoffrey-barini-b1b1781a1" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+
+    <div class="hero-portrait-wrap">
+        <img src="portrait.jpg" alt="Geoffrey Barini" class="hero-portrait">
+        <div class="stat-badge badge-yrs">
+            <div class="stat-num">8+</div>
+            <div class="stat-lbl">Years research</div>
+        </div>
+        <div class="stat-badge badge-pubs">
+            <div class="stat-num">4+</div>
+            <div class="stat-lbl">Publications</div>
+        </div>
+    </div>
+</section>
+</div>
+
+<hr class="section-divider">
+
+<!-- ── ABOUT / RESEARCH FOCUS ── -->
+<div class="wrap">
+<section class="fade-up">
+    <div class="section-label">Research Focus</div>
+    <h2 class="section-title">Bridging mathematics<br>with real-world impact</h2>
+    <div class="about-grid">
+        <div>
+            <p class="about-body">
+                I am a lecturer and researcher in <strong>epidemiological modelling</strong> and <strong>artificial intelligence</strong>.
+            </p>
+            <br>
+            <p class="about-body">
+                Empirically, I apply spatial statistics and machine learning to <strong>public health</strong> and <strong>environmental science</strong> questions, working with nationally representative survey data from sub-Saharan Africa and South Asia.
+            </p>
+        </div>
+        <div class="research-pillars">
+            <div class="pillar">
+                <div class="pillar-icon"><i class="fas fa-map-marked-alt"></i></div>
+                <div class="pillar-text">
+                    <strong>Spatial Epidemiology</strong>
+                    <span>Geostatistical models for health and environmental outcomes</span>
+                </div>
+            </div>
+            <div class="pillar">
+                <div class="pillar-icon"><i class="fas fa-dna"></i></div>
+                <div class="pillar-text">
+                    <strong>Interpretable AI</strong>
+                    <span>Fuzzy systems and explainable models for clinical risk</span>
+                </div>
+            </div>
+            <div class="pillar">
+                <div class="pillar-icon"><i class="fas fa-chart-bar"></i></div>
+                <div class="pillar-text">
+                    <strong>Statistical Inference</strong>
+                    <span>Propensity score matching, Bayesian estimation, causal models</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+
+<hr class="section-divider">
+
+<!-- ── EDUCATION ── -->
+<div class="wrap">
+<section id="education" class="fade-up">
+    <div class="section-label">Academic Background</div>
+    <h2 class="section-title">Education</h2>
+    <div class="timeline">
+        <div class="timeline-entry">
+            <div class="tl-date">2015 — 2018</div>
+            <div class="tl-title">PhD. in Computational Mathematics</div>
+            <div class="tl-org">Pan African University &amp; Jomo Kenyatta University of Agriculture and Technology</div>
+        </div>
+        <div class="timeline-entry">
+            <div class="tl-date">2010 — 2012</div>
+            <div class="tl-title">MSc. Pure Mathematics</div>
+            <div class="tl-org">Jomo Kenyatta University of Agriculture and Technology</div>
+        </div>
+        <div class="timeline-entry">
+            <div class="tl-date">2005 — 2009</div>
+            <div class="tl-title">BSc. Mathematics — First Class Honours</div>
+            <div class="tl-org">Jomo Kenyatta University of Agriculture and Technology</div>
+        </div>
+    </div>
+</section>
+</div>
+
+<hr class="section-divider">
+
+<!-- ── EXPERIENCE ── -->
+<div class="wrap">
+<section id="experience" class="fade-up">
+    <div class="section-label">Career</div>
+    <h2 class="section-title">Experience</h2>
+    <div class="timeline">
+        <div class="timeline-entry">
+            <div class="tl-date">July 2019 — Present</div>
+            <div class="tl-title">Lecturer / Research Fellow (Full Time)</div>
+            <div class="tl-org">Jomo Kenyatta University of Agriculture and Technology, Kenya</div>
+            <div class="tl-body">
+                <ul>
+                    <li>Deliver undergraduate and postgraduate courses in mathematics, AI, and computational modelling.</li>
+                    <li>Supervise student research projects, theses, and academic assessments.</li>
+                    <li>Conduct and publish research in AI, spatial modeling, and environmental/health analytics.</li>
+                    <li>Develop curriculum and instructional materials aligned with academic and industry standards.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="timeline-entry">
+            <div class="tl-date">Feb 2026 — Present</div>
+            <div class="tl-title">LLM AI Research Contractor (Part-Time, Remote)</div>
+            <div class="tl-org">Turing, USA</div>
+            <div class="tl-body">
+                <ul>
+                    <li>Produce high-quality datasets and technical content to support large-language-model training.</li>
+                    <li>Review and evaluate AI model outputs for accuracy, reasoning quality, and reliability.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="timeline-entry">
+            <div class="tl-date">Jan 2013 — June 2019</div>
+            <div class="tl-title">Tutorial Fellow (Full Time)</div>
+            <div class="tl-org">Jomo Kenyatta University of Agriculture and Technology, Kenya</div>
+            <div class="tl-body">
+                <ul>
+                    <li>Delivered tutorials and assisted in teaching undergraduate mathematics and AI courses.</li>
+                    <li>Prepared teaching materials, assignments, and assessments to support course delivery.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="timeline-entry">
+            <div class="tl-date">March 2010 — Dec 2012</div>
+            <div class="tl-title">Teaching Assistant (Full Time)</div>
+            <div class="tl-org">Jomo Kenyatta University of Agriculture and Technology, Kenya</div>
+            <div class="tl-body">
+                <ul>
+                    <li>Supported lecturers by conducting tutorials and grading coursework.</li>
+                    <li>Provided guidance to undergraduate students during practical sessions.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Appointments sub-section -->
+    <div style="margin-top: 56px;">
+        <div class="section-label">Service &amp; Appointments</div>
+        <div class="appts-grid" style="margin-top: 24px;">
+            <div class="appt-card">
+                <div class="appt-date">2026 — Present</div>
+                <div class="appt-title">External Examiner in Mathematics</div>
+                <div class="appt-org">African Nazarene University, Nairobi, Kenya</div>
+            </div>
+            <div class="appt-card">
+                <div class="appt-date">2014 — Present</div>
+                <div class="appt-title">Academic Programmes Coordinator</div>
+                <div class="appt-org">Dept. of Pure &amp; Applied Mathematics, JKUAT, Kenya</div>
+            </div>
+            <div class="appt-card">
+                <div class="appt-date">2019</div>
+                <div class="appt-title">Acting Chairman of Department</div>
+                <div class="appt-org">Dept. of Pure &amp; Applied Mathematics, JKUAT, Kenya</div>
+            </div>
+            <div class="appt-card">
+                <div class="appt-date">2014</div>
+                <div class="appt-title">Examinations Officer</div>
+                <div class="appt-org">Dept. of Pure &amp; Applied Mathematics, JKUAT, Kenya</div>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+
+<hr class="section-divider">
+
+<!-- ── PUBLICATIONS ── -->
+<div class="wrap">
+<section id="publications" class="fade-up">
+    <div class="section-label">Research Output</div>
+    <h2 class="section-title">Selected Publications</h2>
+    <div class="pubs-list">
+
+        <div class="pub-card">
+            <div>
+                <span class="pub-status status-submitted">Submitted</span>
+                <div class="pub-title-text">Mental health outcomes and ambient environmental exposures in Mozambique: A population-based nationally representative survey</div>
+                <div class="pub-authors"><span class="pub-me">Geoffrey Barini*</span>, Walter Mogeni, Polycarp Mogeni</div>
+                <div class="pub-venue">medRxiv Preprint · 2025</div>
+                <div class="pub-links">
+                    <a href="https://doi.org/10.1101/2025.10.29.25339102" class="btn-tag" target="_blank"><i class="fas fa-external-link-alt"></i> medRxiv</a>
+                    <a href="https://doi.org/10.1101/2025.10.29.25339102" class="btn-tag" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+                </div>
+            </div>
+            <div class="pub-year">25</div>
+        </div>
+
+        <div class="pub-card">
+            <div>
+                <span class="pub-status status-published">Published</span>
+                <div class="pub-title-text">Mental health outcomes and intimate partner violence among Nepalese women: A propensity score matched study</div>
+                <div class="pub-authors"><span class="pub-me">Geoffrey Barini*</span>, Linnet Ongeri, Polycarp Mogeni</div>
+                <div class="pub-venue">PLOS Mental Health · 2024</div>
+                <div class="pub-links">
+                    <a href="https://doi.org/10.1371/journal.pmen.0000374" class="btn-tag" target="_blank"><i class="fas fa-external-link-alt"></i> PLOS</a>
+                    <a href="https://doi.org/10.1371/journal.pmen.0000374" class="btn-tag" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+                </div>
+            </div>
+            <div class="pub-year">24</div>
+        </div>
+
+        <div class="pub-card">
+            <div>
+                <span class="pub-status status-published">Published</span>
+                <div class="pub-title-text">Spatial heterogeneity of menstrual discriminatory practices against Nepalese women</div>
+                <div class="pub-authors"><span class="pub-me">Geoffrey Barini*</span>, Sharon Amima, Damaris Mulwa, Polycarp Mogeni</div>
+                <div class="pub-venue">PLOS Global Public Health · 2024</div>
+                <div class="pub-links">
+                    <a href="https://doi.org/10.1371/journal.pgph.0003145" class="btn-tag" target="_blank"><i class="fas fa-external-link-alt"></i> PLOS</a>
+                    <a href="https://doi.org/10.1371/journal.pgph.0003145" class="btn-tag" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+                </div>
+            </div>
+            <div class="pub-year">24</div>
+        </div>
+
+        <div class="pub-card">
+            <div>
+                <span class="pub-status status-published">Published</span>
+                <div class="pub-title-text">Application of a fuzzy unit hypercube in cardiovascular risk classification</div>
+                <div class="pub-authors"><span class="pub-me">Geoffrey Barini*</span>, Livingstone Ngoo, Ronald Mwangi</div>
+                <div class="pub-venue">Soft Computing · Springer · 2019</div>
+                <div class="pub-links">
+                    <a href="https://doi.org/10.1007/s00500-019-03802-0" class="btn-tag" target="_blank"><i class="fas fa-external-link-alt"></i> Springer</a>
+                    <a href="https://doi.org/10.1007/s00500-019-03802-0" class="btn-tag" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+                </div>
+            </div>
+            <div class="pub-year">19</div>
+        </div>
+
+    </div>
+</section>
+</div>
+
+<hr class="section-divider">
+
+<!-- ── PROJECTS ── -->
+<div class="wrap">
+<section id="projects" class="fade-up">
+    <div class="section-label">Applied Work</div>
+    <h2 class="section-title">Selected Data Science Projects</h2>
+    <div class="projects-grid">
+
+        <!-- PROJECT 1: Disease Burden Mapping -->
+        <div class="proj-card">
+            <div class="proj-visual" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);">
+                <!-- Replace with: <img src="project1.png" alt="Disease mapping"> -->
+                <div class="proj-vis-placeholder">
+                    <i class="fas fa-map-marked-alt" style="color: #2d6a4f; font-size: 48px;"></i>
+                    <span style="font-size: 12px; color: #2d6a4f; font-family: 'DM Mono', monospace;">SPATIAL MODEL</span>
+                </div>
+                <div class="proj-tag-bar">
+                    <span class="proj-tag">Python</span>
+                    <span class="proj-tag">GeoPandas</span>
+                    <span class="proj-tag">GEE</span>
+                </div>
+            </div>
+            <div class="proj-body">
+                <h3>Spatial Modeling of Malaria Prevalence in Western Endemic Zone of Kenya</h3>
+                <p>Bayesian geospatial modelling of malaria using DHS survey microdata and Google Earth Engine satellite covariates.</p>
+                <ul>
+                    <li>Built Bayesian geostatistical models (Python Pymc) to smooth small-area estimates.</li>
+                    <li>Integrated environmental rasters (NDVI, temperature, rainfall) as model covariates via GEE.</li>
+                    <li>Developed malaria prevalence risk maps using python pymc.</li>
+                </ul>
+                <div class="proj-links">
+                    <a href="https://github.com/barini-onkundi/malaria-spatial-modelling-pymc" class="btn-tag"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#" class="btn-tag"><i class="fas fa-play"></i> Live Demo</a>
+                    <a href="#" class="btn-tag"><i class="fas fa-file-alt"></i> Report</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJECT 2: Urban Green Space Change Detection -->
+<div class="proj-card">
+    <div class="proj-visual" style="background: linear-gradient(135deg, #e8f5e9 0%, #a5d6a7 100%);">
+        <!-- Replace with: <img src="project2.png" alt="Green space detection"> -->
+        <div class="proj-vis-placeholder">
+            <i class="fas fa-tree" style="color: #2d6a4f; font-size: 48px;"></i>
+            <span style="font-size: 12px; color: #2d6a4f; font-family: 'DM Mono', monospace;">REMOTE SENSING · DL</span>
+        </div>
+        <div class="proj-tag-bar">
+            <span class="proj-tag">PyTorch</span>
+            <span class="proj-tag">GEE</span>
+            <span class="proj-tag">Python</span>
+            <span class="proj-tag">U-Net</span>
+        </div>
+    </div>
+    <div class="proj-body">
+        <h3>Urban Green Space Change Detection using Deep Learning <span style="font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; background: #fff8e1; color: #f59e0b; border: 1px solid #fde68a; border-radius: 4px; padding: 2px 8px; margin-left: 6px; vertical-align: middle;">In Progress</span></h3>
+        <p>A deep learning pipeline for detecting and quantifying temporal changes in urban green space across Nairobi and other East African cities using multi-temporal satellite imagery from Google Earth Engine.</p>
+        <ul>
+            <li>Developing a U-Net segmentation model trained on Sentinel-2 and Landsat-9 imagery to classify green cover at 10m resolution.</li>
+            <li>Building a change detection module to track green space loss and gain between 2015 and 2024 across major urban corridors.</li>
+            <li>Integrating outputs with socioeconomic indicators to analyse environmental equity patterns across city neighbourhoods.</li>
+        </ul>
+        <div class="proj-links">
+            <a href="#" class="btn-tag"><i class="fab fa-github"></i> GitHub</a>
+            <a href="#" class="btn-tag"><i class="fas fa-file-alt"></i> Preprint</a>
+        </div>
+    </div>
+</div>
+    </div>
+</section>
+</div>
+
+<hr class="section-divider">
+
+<!-- ── SKILLS ── -->
+<div class="wrap">
+<section id="skills" class="fade-up">
+    <div class="section-label">Technical Expertise</div>
+    <h2 class="section-title">Skills &amp; Tools</h2>
+    <div class="skills-grid">
+        <div class="skill-card">
+            <div class="skill-icon"><i class="fas fa-code"></i></div>
+            <h4>Programming</h4>
+            <p>Python, R — data wrangling, modelling, visualisation pipelines</p>
+        </div>
+        <div class="skill-card">
+            <div class="skill-icon"><i class="fas fa-globe-africa"></i></div>
+            <h4>GIS &amp; Remote Sensing</h4>
+            <p>QGIS, ArcGIS, Google Earth Engine — spatial analysis &amp; satellite imagery</p>
+        </div>
+        <div class="skill-card">
+            <div class="skill-icon"><i class="fas fa-database"></i></div>
+            <h4>Data Engineering</h4>
+            <p>Apache Spark, MySQL, MongoDB, dbt — large-scale data processing</p>
+        </div>
+        <div class="skill-card">
+            <div class="skill-icon"><i class="fas fa-brain"></i></div>
+            <h4>ML &amp; Deep Learning</h4>
+            <p>Keras, TensorFlow, PyTorch, scikit-learn — model development &amp; evaluation</p>
+        </div>
+        <div class="skill-card">
+            <div class="skill-icon"><i class="fas fa-chart-area"></i></div>
+            <h4>Dashboards &amp; Viz</h4>
+            <p>Dash, R Shiny, Plotly — interactive analytical applications</p>
+        </div>
+        <div class="skill-card">
+            <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
+            <h4>Web Development</h4>
+            <p>HTML, CSS, JavaScript — research portfolio and web tooling</p>
+        </div>
+    </div>
+</section>
+</div>
+
+<hr class="section-divider">
+
+<!-- ── VISITOR MAP ── -->
+<div class="wrap">
+<section style="padding: 60px 0;">
+    <div class="stats-card">
+        <div class="section-label" style="margin-bottom: 0;">Visitor Reach</div>
+        <script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=NMna1HyiDsXLGDHW1W3rt0B9hKbbzPdzWics0hNTi3A&cl=ffffff&w=a"></script>
+    </div>
+</section>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="wrap">
+    <footer>
+        <p>© 2026 Geoffrey Barini · JKUAT, Kenya</p>
+        <div class="footer-links">
+            <a href="mailto:geoffrey.barini@jkuat.ac.ke">Email</a>
+            <a href="https://scholar.google.com/citations?user=FlEkqRcAAAAJ&hl=en" target="_blank">Scholar</a>
+            <a href="https://github.com/barini-onkundi" target="_blank">GitHub</a>
+        </div>
+    </footer>
+</div>
+
+<script>
+    // Intersection Observer for fade-up animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                observer.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Stagger timeline entries
+    document.querySelectorAll('.timeline-entry').forEach((el, i) => {
+        el.style.transitionDelay = `${i * 80}ms`;
+        el.classList.add('fade-up');
+        observer.observe(el);
+    });
+
+    // Stagger project cards
+    document.querySelectorAll('.proj-card').forEach((el, i) => {
+        el.style.transitionDelay = `${i * 100}ms`;
+    });
+
+    // Active nav link highlighting
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(s => {
+            if (window.scrollY >= s.offsetTop - 80) current = s.id;
+        });
+        navLinks.forEach(a => {
+            a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--accent)' : '';
+        });
+    }, { passive: true });
+</script>
+</body>
+</html>
